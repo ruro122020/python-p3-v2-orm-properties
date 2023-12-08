@@ -19,7 +19,18 @@ class Employee:
             f"<Employee {self.id}: {self.name}, {self.job_title}, " +
             f"Department ID: {self.department_id}>"
         )
-
+    
+    @property
+    def name(self):
+        return self._name
+    @name.setter
+    def name(self, name):
+        if isinstance(name) and len(name):
+            self._name = name
+        else:
+            raise ValueError("Name must be a non-empty string")
+        
+   
     @classmethod
     def create_table(cls):
         """ Create a new table to persist the attributes of Employee instances """
