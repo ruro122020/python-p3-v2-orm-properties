@@ -30,7 +30,17 @@ class Employee:
         else:
             raise ValueError("Name must be a non-empty string")
         
-   
+    @property
+    def job_title(self):
+        return self._job_title
+    
+    @job_title.setter
+    def job_title(self, job_title):
+        if isinstance(job_title, str) and len(job_title):
+            self._job_title = job_title
+        else:
+            raise ValueError("job_style must be a non-empty string") 
+
     @classmethod
     def create_table(cls):
         """ Create a new table to persist the attributes of Employee instances """
